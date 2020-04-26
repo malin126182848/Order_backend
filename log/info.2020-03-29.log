@@ -1,0 +1,5 @@
+HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=1h32m58s898ms).
+Shutting down ExecutorService 'applicationTaskExecutor'
+Closing JPA EntityManagerFactory for persistence unit 'default'
+HikariPool-1 - Shutdown initiated...
+HikariPool-1 - Shutdown completed.
