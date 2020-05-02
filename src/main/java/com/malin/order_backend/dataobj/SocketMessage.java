@@ -3,7 +3,7 @@ package com.malin.order_backend.dataobj;
 import lombok.Data;
 
 /**
- * 聊天信息封装类
+ * 信息封装类
  */
 @Data
 public class SocketMessage {

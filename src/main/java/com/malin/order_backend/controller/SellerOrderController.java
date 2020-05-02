@@ -44,8 +44,7 @@ public class SellerOrderController {
     @ApiImplicitParams({
             @ApiImplicitParam(name = "page", value = "页面号", defaultValue = "0"),
             @ApiImplicitParam(name = "size", value = "大小", defaultValue = "10")
-    }
-    )
+    })
     public ResultVO<List<OrderDTO>> list(@RequestParam(value = "page", defaultValue = "0") Integer page,
                                          @RequestParam(value = "size", defaultValue = "10") Integer size) {
         PageRequest request = PageRequest.of(page, size);
