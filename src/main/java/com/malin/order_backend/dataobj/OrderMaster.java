@@ -33,6 +33,9 @@ public class OrderMaster {
     /** 买家地址. */
     private String buyerAddress;
 
+    /** 取餐码. */
+    private String mealCode;
+
     /** 买家微信Openid. */
     private String buyerOpenid;
 

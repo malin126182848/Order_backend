@@ -38,6 +38,10 @@ public class OrderDTO {
     @ApiModelProperty(value = "买家地址")
     private String buyerAddress;
 
+    /** 取餐码. */
+    @ApiModelProperty(value = "取餐码")
+    private String mealCode;
+
     /** 买家Openid. */
     @ApiModelProperty(value = "买家Openid")
     private String buyerOpenid;

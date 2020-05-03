@@ -15,6 +15,7 @@ import com.malin.order_backend.repository.OrderMasterRepository;
 import com.malin.order_backend.service.*;
 import com.malin.order_backend.utils.KeyUtil;
 
+import com.malin.order_backend.utils.MealCodeUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -91,6 +92,7 @@ public class OrderServiceImpl implements OrderService {
         OrderMaster orderMaster = new OrderMaster();
         orderDTO.setOrderId(orderId);
         BeanUtils.copyProperties(orderDTO, orderMaster);
+        orderMaster.setMealCode(MealCodeUtil.getMealCode());
         orderMaster.setOrderAmount(orderAmount);
         orderMaster.setOrderStatus(OrderStatusEnum.NEW.getCode());
         orderMaster.setPayStatus(PayStatusEnum.WAIT.getCode());
