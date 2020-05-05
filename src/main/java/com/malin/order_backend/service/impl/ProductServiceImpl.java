@@ -65,7 +65,7 @@ public class ProductServiceImpl implements ProductService {
             productInfo.setCreateTime(productInfoOptional.get().getCreateTime());
             productInfo.setUpdateTime(productInfoOptional.get().getUpdateTime());
         }
-        return repository.save(productInfo).addImageHost(imgHostConfig.getImageHost());
+        return repository.save(productInfo);//.addImageHost(imgHostConfig.getImageHost());
     }
 
     @Override

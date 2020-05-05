@@ -8,6 +8,7 @@ import org.springframework.web.socket.server.standard.ServerEndpointExporter;
 /**
  * websocket 配置信息
  */
+/*
 @Configuration
 @EnableWebSocket
 public class WebsocketConfig {
@@ -17,3 +18,4 @@ public class WebsocketConfig {
         return new ServerEndpointExporter();
     }
 }
+*/

@@ -40,6 +40,7 @@ public class SysUserController {
         if (token != null){
             map.put("code", "200");
             map.put("message","认证成功");
+            map.put("userType",user.getOpenid());
             map.put("token", token);
         } else {
             map.put("code", "403");

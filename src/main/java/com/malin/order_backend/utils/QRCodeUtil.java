@@ -140,6 +140,10 @@ public class QRCodeUtil {
      */
     public static String decode(String path) throws Exception {
         File file = new File(path);
+        return decode(file);
+    }
+
+    public static String decode(File file) throws Exception {
         BufferedImage image = ImageIO.read(file);
         if (image == null) {
             return null;

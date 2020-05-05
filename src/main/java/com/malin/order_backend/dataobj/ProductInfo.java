@@ -80,6 +80,4 @@ public class ProductInfo implements Serializable {
         productIcon = host + productIcon;
         return this;
     }
-
-
 }
