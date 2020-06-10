@@ -54,7 +54,7 @@ public class QRCodeController {
         }
         return ResultVOUtil.success(files);
     }
-        @PostMapping("/create")
+    @PostMapping("/create")
     @ApiOperation("生成座位二维码")
     @ApiImplicitParams({
             @ApiImplicitParam(name = "address", value = "座位号"),
@@ -91,5 +91,14 @@ public class QRCodeController {
         String result = QRCodeUtil.encode(str,"./image/"+logofile,"./Image/QRCodePath",address,true);
         map.put("fileName", result);
         return ResultVOUtil.success(map);
+    }
+
+    @GetMapping("/delete/{fileName}")
+    public ResultVO deleteQRCode(@PathVariable String fileName){
+        File file = new File("./Image/QRCodePath/"+fileName+".jpg");
+        if(!file.delete()){
+            return ResultVOUtil.error(300,"图片删除失败");
+        }
+        return ResultVOUtil.success();
     }
 }

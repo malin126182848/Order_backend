@@ -33,6 +33,10 @@ public class SysUserController {
         // 省略 账号密码验证
         String token = null;
         SellerInfo user = sellerService.findSellerInfoByUsername(username);
+        if (user == null){
+            map.put("code", "404");
+            map.put("message","用户名不存在");
+        }else{
         boolean b = password.equals(user.getPassword());
         if (user != null && b)
             token = JwtUtil.sign(username,password);
@@ -45,6 +49,7 @@ public class SysUserController {
         } else {
             map.put("code", "403");
             map.put("message","认证失败");
+        }
         }
         return map;
     }

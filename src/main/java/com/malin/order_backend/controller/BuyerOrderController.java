@@ -59,7 +59,6 @@ public class BuyerOrderController {
 
         OrderDTO createResult = orderService.create(orderDTO);
 
-
         return ResultVOUtil.success(createResult);
     }
 

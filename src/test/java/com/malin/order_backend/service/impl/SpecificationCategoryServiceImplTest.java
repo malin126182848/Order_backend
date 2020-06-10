@@ -29,7 +29,7 @@ public class SpecificationCategoryServiceImplTest {
     @Test
     public void findAll() throws Exception {
         List<SpecificationCategory> specificationCategoryList = categoryService.findAll();
-        Assert.assertNotEquals(0, specificationCategoryList.size());
+        Assert.assertNotEquals(1, specificationCategoryList.size());
     }
 
     @Test

@@ -4,9 +4,11 @@ import com.malin.order_backend.dataobj.SpecificationCategory;
 import com.malin.order_backend.repository.SpecificationCategoryRepository;
 import com.malin.order_backend.service.SpecificationCategoryService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@Service
 public class SpecificationCategoryServiceImpl implements SpecificationCategoryService {
 
     @Autowired

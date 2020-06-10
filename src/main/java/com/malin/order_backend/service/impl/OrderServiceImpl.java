@@ -13,6 +13,7 @@ import com.malin.order_backend.exception.SellException;
 import com.malin.order_backend.repository.OrderDetailRepository;
 import com.malin.order_backend.repository.OrderMasterRepository;
 import com.malin.order_backend.service.*;
+import com.malin.order_backend.utils.JsonUtil;
 import com.malin.order_backend.utils.KeyUtil;
 
 import com.malin.order_backend.utils.MealCodeUtil;
@@ -52,8 +53,8 @@ public class OrderServiceImpl implements OrderService {
 //    @Autowired
 //    private PushMessageService pushMessageService;
 
-//    @Autowired
-//    private WebSocket webSocket;
+    @Autowired
+    private WebSocketService webSocket;
 
     @Override
     @Transactional
@@ -104,8 +105,9 @@ public class OrderServiceImpl implements OrderService {
         ).collect(Collectors.toList());
         productService.decreaseStock(cartDTOList);
 
-        //TODO 发送websocket消息
-        //webSocket.sendMessage(orderDTO.getOrderId());
+        //发送websocket消息
+        OrderDTO websocketData = findOne(orderDTO.getOrderId());
+        webSocket.sendAllMessage(JsonUtil.toJson(websocketData));
 
         return orderDTO;
     }
@@ -115,6 +117,7 @@ public class OrderServiceImpl implements OrderService {
 
         OrderMaster orderMaster = orderMasterRepository.findById(orderId).orElse(null);
         if (orderMaster == null) {
+            log.error(orderId);
             throw new SellException(ResultEnum.ORDER_NOT_EXIST);
         }
 
